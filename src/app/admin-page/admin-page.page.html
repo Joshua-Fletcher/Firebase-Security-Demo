@@ -1,0 +1,111 @@
+<ion-content>
+    <ng-container>
+        <ion-header *ngIf="user">
+            <ion-toolbar>
+                <ion-grid>
+                    <ion-row class="header-row">
+                        <ion-col class="title" size="auto">
+                            Firebase Security Application
+                        </ion-col>
+                        <ion-col (click)="navigateToHomePage()" class="user-list-link" size="auto">
+                            <p>Home</p>
+                        </ion-col>
+                        <ion-col></ion-col>
+                        <ion-col size="auto">
+                            <b>Logged in User:</b>
+                        </ion-col>
+                        <ion-col size="auto" class="padding-right">
+                            {{user.email ? user.email : ''}}
+                        </ion-col>
+                        <ion-col size="auto">
+                            <b>Role:</b>
+                        </ion-col>
+                        <ion-col size="auto" class="padding-right">
+                            {{user.role ? user.role : '' }}
+                        </ion-col>
+                        <ion-col size="auto">
+                            <ion-button (click)="logout()" color="danger">Sign Out</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-toolbar>
+        </ion-header>
+        <div *ngIf="!activeUserData && !insideErrorMessage">
+            <ion-row class="classified-row">
+                <ion-col>
+                    User List
+                </ion-col>
+            </ion-row>
+            <ion-grid class="bottom-grid">
+                <ion-row class="table-header">
+                    <ion-col>
+                        Email
+                    </ion-col>
+                    <ion-col>
+                        Role
+                    </ion-col>
+                </ion-row>
+                <ion-row class="display" *ngFor="let user of allUsers" (click)="displayUser(user.id)">
+                    <ion-col>
+                        {{user.email}}
+                    </ion-col>
+                    <ion-col>
+                        {{user.role}}
+                    </ion-col>
+                </ion-row> 
+            </ion-grid>
+        </div>
+        <div *ngIf="activeUserData || insideErrorMessage">
+            <ion-row class="classified-row">
+                <ion-col>
+                    Private User Data
+                </ion-col>
+            </ion-row>
+            <ion-grid class="bottom-grid">
+                <ion-row>
+                    <ion-col (click)="goToUserList()" size="auto" class="back-button">
+                        back
+                    </ion-col>
+                    <ion-col></ion-col>
+                </ion-row>
+                <ion-row class="table-header">
+                    <ion-col>
+                        Email
+                    </ion-col>
+                    <ion-col>
+                        Name
+                    </ion-col>
+                    <ion-col>
+                        Address
+                    </ion-col>
+                    <ion-col>
+                        Phone
+                    </ion-col>
+                </ion-row>
+                <div *ngIf="!insideErrorMessage">
+                    <ion-row class="user-row">
+                        <ion-col>
+                            {{activeUserData.email}}
+                        </ion-col>
+                        <ion-col>
+                            {{activeUserData.name}}
+                        </ion-col>
+                        <ion-col>
+                            {{activeUserData.address}}
+                        </ion-col>
+                        <ion-col>
+                            {{activeUserData.phone}}
+                        </ion-col>
+                    </ion-row>
+                </div>
+                <div *ngIf="insideErrorMessage">
+                    <ion-row class="error-message">
+                        <ion-col>
+                            {{insideErrorMessage}}
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </ion-grid>
+        </div>
+    </ng-container>
+</ion-content>

@@ -1,0 +1,38 @@
+
+<ion-content class="sign-in-content">
+  <ion-grid>
+    <ion-row class="top-level-row">
+      <ion-col>
+        <ion-row class="log-in-text">
+          <ion-col>
+            <ion-title><span>Log in</span></ion-title>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <form [formGroup]="signInForm" (ngSubmit)="signInWithEmail()">
+              <ion-list class="inputs-list" lines="full">
+                <ion-item lines="none" class="input-item">
+                  <ion-input  type="email" placeholder="Email" formControlName="email" clearInput autocapitalize="off" inputmode="email"></ion-input>
+                </ion-item>
+      
+                <ion-item lines="none" class="input-item">
+                  <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+                </ion-item>
+              </ion-list>
+        
+            </form>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="signInWithEmail()" class="sign-in-btn" 
+            [ngStyle]="{'border': signInForm.valid ? '4px solid green' : '4px solid red' }"
+             type="submit" expand="block" [disabled]="!signInForm.valid">Sign In</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

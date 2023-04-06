@@ -1,0 +1,50 @@
+.sign-in-content {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  ion-grid {
+    height: 100%;
+    width: 60%;
+  }
+
+  .inputs-list {
+
+    ion-item.input-item {
+      --padding-start: 0px;
+      --padding-end: 0px;
+      --inner-padding-top: 4px;
+      --inner-padding-bottom: 4px;
+      --inner-padding-end: 0px;
+      --inner-padding-start: 20px;
+
+      margin: 20px 4px;
+      color: grey;
+
+      --background: #e5e8eb;
+      border: 0px solid white;
+      border-radius: 20px;
+      font-weight: 700;
+
+    }
+
+  }
+
+  ion-button.sign-in-btn {
+    --background: none;
+    border: 4px solid red;
+    border-radius: 20px;
+    color: black;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 10px;
+  }
+  
+  ion-row.top-level-row {
+    height: 100%;
+    align-items: center;
+  }
+
+}
