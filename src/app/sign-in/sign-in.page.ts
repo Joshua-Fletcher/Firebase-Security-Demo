@@ -111,4 +111,9 @@ export class SignInPage implements OnInit {
     });
   }
 
+  fillInfo(email: string): void {
+    this.signInForm.get('email').setValue(email);
+    this.signInForm.get('password').setValue('Test123456!');
+  }
+
 }

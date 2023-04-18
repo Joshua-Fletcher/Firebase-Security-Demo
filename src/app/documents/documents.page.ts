@@ -91,6 +91,10 @@ export class DocumentsPage implements OnInit, ViewWillEnter {
         this.router.navigate(['documents']);
     }
 
+    navigateToHomePage(): void {
+        this.router.navigate(['user/home']);
+    }
+
     logout(): void {
         this.authService.signOut();
         this.ngZone.run(() => {

@@ -80,6 +80,7 @@ export class AdminPage implements OnInit, ViewWillEnter {
     navigateToHomePage(): void {
         this.router.navigate(['user/home']);
     }
+    
 
     logout(): void {
         this.authService.signOut();

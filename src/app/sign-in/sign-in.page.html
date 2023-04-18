@@ -13,7 +13,7 @@
             <form [formGroup]="signInForm" (ngSubmit)="signInWithEmail()">
               <ion-list class="inputs-list" lines="full">
                 <ion-item lines="none" class="input-item">
-                  <ion-input  type="email" placeholder="Email" formControlName="email" clearInput autocapitalize="off" inputmode="email"></ion-input>
+                  <ion-input type="email" placeholder="Email" formControlName="email" clearInput autocapitalize="off" inputmode="email"></ion-input>
                 </ion-item>
       
                 <ion-item lines="none" class="input-item">
@@ -34,5 +34,17 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-row class="bottom-row">
+    <ion-col class="hover-name" (click)="fillInfo('basic-user@test.com')">
+      basic-user@test.com
+    </ion-col>
+    <ion-col class="hover-name" (click)="fillInfo('supervisor-d1@test.com')">
+      supervisor-d1@test.com
+    </ion-col>
+    <ion-col class="hover-name" (click)="fillInfo('admin@test.com')">
+      admin@test.com
+    </ion-col>
+  </ion-row>
 
 </ion-content>

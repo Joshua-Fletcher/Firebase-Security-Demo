@@ -4,7 +4,7 @@
             <ion-toolbar>
                 <ion-grid>
                     <ion-row class="header-row">
-                        <ion-col class="title" size="auto">
+                        <ion-col class="title" size="auto" (click)="navigateToHomePage()">
                             Firebase Security Application
                         </ion-col>
                         <ion-col *ngIf="user.role.includes('supervisor')" (click)="navigateToAdminPage()" class="user-list-link" size="auto">
