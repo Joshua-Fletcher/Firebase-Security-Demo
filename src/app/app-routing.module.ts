@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin-page/admin-page.module').then(m => m.AdminPageModule)
   },
   {
+    path: 'documents',
+    loadChildren: () => import('./documents/documents.module').then(m => m.DocumentsPageModule)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

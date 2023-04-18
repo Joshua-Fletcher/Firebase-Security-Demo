@@ -46,6 +46,18 @@ ion-content {
             justify-content: center;
         }
 
+        .rotate-left {
+            transform: rotate(-45deg);
+        }
+
+        .rotate-right {
+            transform: rotate(45deg);
+        }
+
+        .double-arrows {
+            text-align: center;
+        }
+
         .user-card {
             background-color: white;
             color: black;

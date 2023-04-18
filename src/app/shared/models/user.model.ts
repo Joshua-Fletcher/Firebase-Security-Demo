@@ -2,6 +2,7 @@ export interface IUser {
     role: string;
     id: string;
     email: string;
+    department: number;
 }
 
 export interface IUserData {

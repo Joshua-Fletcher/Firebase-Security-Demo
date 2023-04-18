@@ -36,13 +36,18 @@ export class UserHomePage implements OnInit, ViewWillEnter {
             this.user = {   
                 email: null,
                 role: null,
-                id: null
+                id: null,
+                department: null
             } as IUser;
         }
     }
 
     navigateToAdminPage(): void {
         this.router.navigate(['admin/user-list']);
+    }
+
+    navigateToDocumentsPage(): void {
+        this.router.navigate(['documents']);
     }
 
     logout(): void {

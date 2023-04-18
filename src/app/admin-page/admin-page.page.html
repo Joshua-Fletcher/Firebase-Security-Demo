@@ -18,6 +18,12 @@
                             {{user.email ? user.email : ''}}
                         </ion-col>
                         <ion-col size="auto">
+                            <b>Department:</b>
+                        </ion-col>
+                        <ion-col size="auto" class="padding-right">
+                            {{user.department ? user.department : '' }}
+                        </ion-col>
+                        <ion-col size="auto">
                             <b>Role:</b>
                         </ion-col>
                         <ion-col size="auto" class="padding-right">
@@ -44,6 +50,9 @@
                     <ion-col>
                         Role
                     </ion-col>
+                    <ion-col>
+                        Department
+                    </ion-col>
                 </ion-row>
                 <ion-row class="display" *ngFor="let user of allUsers" (click)="displayUser(user.id)">
                     <ion-col>
@@ -51,6 +60,9 @@
                     </ion-col>
                     <ion-col>
                         {{user.role}}
+                    </ion-col>
+                    <ion-col>
+                        {{user.department}}
                     </ion-col>
                 </ion-row> 
             </ion-grid>

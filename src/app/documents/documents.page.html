@@ -1,0 +1,62 @@
+<ion-content>
+    <ng-container>
+        <ion-header *ngIf="user">
+            <ion-toolbar>
+                <ion-grid>
+                    <ion-row class="header-row">
+                        <ion-col class="title" size="auto">
+                            Firebase Security Application
+                        </ion-col>
+                        <ion-col *ngIf="user.role.includes('supervisor')" (click)="navigateToAdminPage()" class="user-list-link" size="auto">
+                            <p>User Data</p>
+                        </ion-col>
+                        <ion-col (click)="navigateToDocumentsPage()" class="user-list-link" size="auto">
+                            <p>Documents</p>
+                        </ion-col>
+                        <ion-col></ion-col>
+                        <ion-col size="auto">
+                            <b>Logged in User:</b>
+                        </ion-col>
+                        <ion-col size="auto" class="padding-right">
+                            {{user.email ? user.email : ''}}
+                        </ion-col>
+                        <ion-col size="auto">
+                            <b>Department:</b>
+                        </ion-col>
+                        <ion-col size="auto" class="padding-right">
+                            {{user.department ? user.department : '' }}
+                        </ion-col>
+                        <ion-col size="auto">
+                            <b>Role:</b>
+                        </ion-col>
+                        <ion-col size="auto" class="padding-right">
+                            {{user.role ? user.role : '' }}
+                        </ion-col>
+                        <ion-col size="auto">
+                            <ion-button (click)="logout()" color="danger">Sign Out</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-toolbar>
+        </ion-header>
+        <ion-grid class="document-grid" *ngIf="documents.length > 0">
+            <ion-row *ngFor="let doc of documents">
+                <ion-col *ngIf="!doc.error">
+                    <div class="data container">
+                        {{doc.Data}}
+                    </div>
+                </ion-col>
+                <ion-col class="user-access" size="auto" *ngIf="allUsers.length > 0 && user.role.includes('admin')">
+                    <ion-select (ionChange)="accessUpdate(doc)" [multiple]="true" [(ngModel)]="doc.Access" [value]="doc.Access">
+                        <ion-select-option *ngFor="let user of allUsers" [value]="user.id">{{user.email}}</ion-select-option>
+                    </ion-select>
+                </ion-col>
+                <ion-col *ngIf="doc.error">
+                    <div class="error container">
+                        {{doc.error}}
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ng-container>
+</ion-content>

@@ -7,8 +7,11 @@
                         <ion-col class="title" size="auto">
                             Firebase Security Application
                         </ion-col>
-                        <ion-col *ngIf="user.role === 'admin'" (click)="navigateToAdminPage()" class="user-list-link" size="auto">
+                        <ion-col *ngIf="user.role.includes('supervisor')" (click)="navigateToAdminPage()" class="user-list-link" size="auto">
                             <p>User Data</p>
+                        </ion-col>
+                        <ion-col (click)="navigateToDocumentsPage()" class="user-list-link" size="auto">
+                            <p>Documents</p>
                         </ion-col>
                         <ion-col></ion-col>
                         <ion-col size="auto">
@@ -16,6 +19,12 @@
                         </ion-col>
                         <ion-col size="auto" class="padding-right">
                             {{user.email ? user.email : ''}}
+                        </ion-col>
+                        <ion-col size="auto">
+                            <b>Department:</b>
+                        </ion-col>
+                        <ion-col size="auto" class="padding-right">
+                            {{user.department ? user.department : '' }}
                         </ion-col>
                         <ion-col size="auto">
                             <b>Role:</b>
@@ -43,27 +52,43 @@
                             </div>
                         </ion-col>
                     </ion-row>
-                    <ion-row class="icon-row">
-                        <ion-col size="auto">
-                            <ion-icon name="arrow-up-outline"></ion-icon>
+                    <ion-row class="icon-row double-arrows">
+                        <ion-col>
+                            <ion-icon class="rotate-right" name="arrow-up-outline"></ion-icon>
+                        </ion-col>
+                        <ion-col>
+                            <ion-icon class="rotate-left" name="arrow-up-outline"></ion-icon>
                         </ion-col>
                     </ion-row>
                     <ion-row>
                         <ion-col>
                             <div class="user-card">
-                                Supervisor
+                                Supervisor Department 1
+                            </div>
+                        </ion-col>
+                        <ion-col>
+                            <div class="user-card">
+                                Supervisor Department 2
                             </div>
                         </ion-col>
                     </ion-row>
-                    <ion-row class="icon-row">
-                        <ion-col size="auto">
+                    <ion-row class="icon-row double-arrows">
+                        <ion-col>
+                            <ion-icon name="arrow-up-outline"></ion-icon>
+                        </ion-col>
+                        <ion-col>
                             <ion-icon name="arrow-up-outline"></ion-icon>
                         </ion-col>
                     </ion-row>
                     <ion-row>
                         <ion-col>
                             <div class="user-card">
-                                User
+                                User Department 1
+                            </div>
+                        </ion-col>
+                        <ion-col>
+                            <div class="user-card">
+                                User Department 2
                             </div>
                         </ion-col>
                     </ion-row>

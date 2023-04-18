@@ -77,7 +77,8 @@ export class SignInPage implements OnInit {
       const newUser: IUser = {
         id: user.user.uid,
         role: 'admin',
-        email: this.signInForm.value['email'].toString()
+        email: this.signInForm.value['email'].toString(),
+        department: 1
       };
       this.db.collection("Users").doc(user.user.uid).set(newUser);
 
@@ -96,7 +97,8 @@ export class SignInPage implements OnInit {
         const existingUser: IUser = {
           email: doc.data().email.toString(),
           id: user.user.uid.toString(),
-          role: doc.data().role.toString()
+          role: doc.data().role.toString(),
+          department: doc.data().department.toString()
         };
 
 
